@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XPTO Advogados — Fale com a gente</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-mark">X</span>
+        <div>
+          <strong>XPTO Advogados Associados</strong>
+          <small>Cível · Trabalhista · Consumidor · Família</small>
+        </div>
+      </div>
+      <span class="badge">Atendimento online</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="intro">
+      <h1>Conte o seu caso</h1>
+      <p>Preencha o formulário e anexe os documentos que tiver. Nossa equipe analisa e retorna o contato.</p>
+    </section>
+
+    <form id="form" class="card" novalidate>
+      <fieldset>
+        <legend>Seus dados</legend>
+        <div class="grid">
+          <label>Nome completo
+            <input name="nome" required autocomplete="name" />
+          </label>
+          <label>E-mail
+            <input name="email" type="email" required autocomplete="email" />
+          </label>
+          <label>Telefone / WhatsApp
+            <input name="telefone" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" />
+          </label>
+          <label>Como prefere ser contatado?
+            <select name="canal">
+              <option value="EMAIL">E-mail</option>
+              <option value="WHATSAPP">WhatsApp</option>
+              <option value="TELEFONE">Telefone</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Sobre o caso</legend>
+        <div class="grid">
+          <label>Área
+            <select name="areaJuridica" id="area" required></select>
+          </label>
+          <label>Assunto
+            <select name="tipoCaso" id="tipo" required></select>
+          </label>
+        </div>
+        <label>Resumo do que aconteceu
+          <textarea name="resumo" rows="4" maxlength="255" required
+            placeholder="Ex.: Fui demitido sem receber as horas extras dos últimos 2 anos."></textarea>
+          <span class="hint"><span id="count">0</span>/255</span>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Documentos</legend>
+        <label class="drop" id="drop">
+          <input type="file" id="files" multiple accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,application/pdf,image/png,image/jpeg,image/tiff" />
+          <span><strong>Clique para anexar</strong> ou arraste aqui</span>
+          <small>PDF, PNG, JPG ou TIFF</small>
+        </label>
+        <ul id="fileList" class="files"></ul>
+      </fieldset>
+
+      <label class="check">
+        <input type="checkbox" name="lgpd" required />
+        Autorizo o uso dos meus dados e documentos para análise do caso, conforme a LGPD.
+      </label>
+
+      <p id="error" class="error" hidden></p>
+      <button type="submit" id="submit">Enviar para análise</button>
+    </form>
+
+    <section id="result" class="card" hidden>
+      <h2>Recebemos o seu caso</h2>
+      <p>Protocolo: <strong id="protocolo" class="mono"></strong></p>
+      <p class="muted">Guarde esse número. Vamos entrar em contato assim que a análise terminar.</p>
+
+      <div class="demo-panel">
+        <h3>Acompanhamento <span class="tag">demo</span></h3>
+        <ol id="steps" class="steps"></ol>
+        <p class="muted small">Sessão: <span id="sessionId" class="mono"></span></p>
+        <p class="muted small" id="statusRaw"></p>
+      </div>
+
+      <button type="button" id="again" class="secondary">Enviar outro caso</button>
+    </section>
+  </main>
+
+  <footer class="wrap footer">XPTO Advogados Associados — escritório fictício para demonstração do TriAIge.</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
